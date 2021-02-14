@@ -9,9 +9,9 @@ namespace assessment_1_school_register
         private DateTime date = DateTime.Now;
         private string dayoftheweek;
         private string attendaced;
-        private int minlate;
+        private int minuteslate;
 
-        public Attendance(DateTime date, string attendaced)
+        public Attendance(DateTime date, string attendaced, int minuteslate)
         {
             this.date = date;
             this.attendaced = attendaced;
@@ -20,7 +20,7 @@ namespace assessment_1_school_register
 
         public int getminlate()
         {
-            return minlate;
+            return minuteslate;
         }
         public string getday()
         {

@@ -9,7 +9,7 @@ namespace assessment_1_school_register
         private string formname;
         private string teachername;
         Student[] students = new Student[25];
-        int numberofstudents = 25;
+        int numberofstudents = 4;
         int studentspresent;
 
         public FormGroup(string formname, string teachername)
@@ -17,16 +17,16 @@ namespace assessment_1_school_register
             this.formname = formname;
             this.teachername = teachername;
         }
-        public void AddStudent(string StudentName, string DateOfBirth, string Gender)
+        public void AddStudent(string studentname, string studentDOB, string gender)
         {
             if (studentspresent < numberofstudents)
             {
-                students[studentspresent] = new Student(StudentName, DateOfBirth, Gender);
+                students[studentspresent] = new Student(studentname, studentDOB, gender);
                 studentspresent++;
             }
         }
 
-        public void TakeAttendance(DateTime AttendanceDate)
+        public void takeattendance(DateTime attendancedate)
 
         {
             for (int i = 0; i < numberofstudents; i++)
@@ -35,16 +35,16 @@ namespace assessment_1_school_register
                 {
                     Console.WriteLine(students[i].getstudentname() + " present(p), late(l), or absent(a)?");
                     string UserResponse = Console.ReadLine();
-                    int LateMinutes = 0;
+                    int minuteslate = 0;
 
 
                     if (UserResponse == "l")
                     {
                         Console.WriteLine("How late were they(in minutes)?");
-                        LateMinutes = Console.Read();
+                        minuteslate = Console.Read();
 
                     }
-                    students[i].addattendance(AttendanceDate, UserResponse);
+                    students[i].addattendance(attendancedate, UserResponse, minuteslate);
                 }
             }
         }
